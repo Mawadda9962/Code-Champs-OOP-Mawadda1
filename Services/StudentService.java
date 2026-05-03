@@ -87,6 +87,29 @@ public class StudentService {
         System.out.println("Student List");
         UniversityService.university.displayStudents();
 
+        System.out.println("Enter Student name to delete");
+        String name = scanner.nextLine();
+
+        Student studentToRemove = null;
+
+        for (Student s : studentList){
+            if (s.getName().equalsIgnoreCase(name)){
+                studentToRemove = s;
+                break;
+            }
+        }
+        if (studentToRemove != null) {
+            studentList.remove(studentToRemove);
+            System.out.println(Constants.STUDENT_DELETED_SUCCESSFULLY);
+        } else {
+            System.out.println(Constants.STUDENT_NOT_FOUND);
+        }
+    }
+
+
+
+
+
 
     }
 
