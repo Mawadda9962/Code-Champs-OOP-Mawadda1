@@ -35,6 +35,7 @@ public class Constants {
     public static String TEACHER_DELETED_SUCCESSFULLY = "Teacher Delete Successfully";
     public static String TEACHER_ADDED_SUCCESSFULLY = "Teacher added Successfully";
     public static String TEACHER_DELETED_FAILED = "Teacher Deleted Failed";
+    public static String COURSE_DELETED_FAILED = "Course Deleted Failed";
 
 }
 

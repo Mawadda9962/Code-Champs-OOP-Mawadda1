@@ -89,4 +89,11 @@ public class University extends ParentEntity implements UniversityInterface {
 
     public void setCourseList(ArrayList<Object> objects) {
     }
+
+    public List<Course> getCourseList() {
+        return null;
+    }
+
+    public void displayStudents() {
+    }
 }

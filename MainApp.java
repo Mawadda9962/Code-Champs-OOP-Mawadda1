@@ -83,8 +83,20 @@ public class MainApp {
 
 
             }
+//
+                case 5 ->{
+                    System.out.println("Course Menu");
+                    Boolean courseMenuContinue = true;
 
-                case 5 -> System.out.println("Course Menu");
+                    while (courseMenuContinue) {
+                        System.out.println(" *********** Course Menu ***********");
+                        System.out.println(MenuMessages.COURSE_MENU_MESSAGE);
+                        Integer courseOption = input.nextInt();
+                        courseMenuContinue = studentService.handleStudentMenu(courseOption);
+                    }
+
+                }
+
 
                 case 6 -> {
                     System.out.println("Exit");

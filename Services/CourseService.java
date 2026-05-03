@@ -1,7 +1,6 @@
 package ObjectOrientedProgramming.OOPDemo.Services;
 
 import ObjectOrientedProgramming.OOPDemo.Entities.Course;
-import ObjectOrientedProgramming.OOPDemo.Entities.Student;
 import ObjectOrientedProgramming.OOPDemo.Utils.Constants;
 
 import java.util.ArrayList;
@@ -11,11 +10,11 @@ import java.util.UUID;
 
 public class CourseService {
 
-    public List<Student> getCourses() {
-        if (UniversityService.university.getStudentList() == null) {
+    public List<Course> getCourses() {
+        if (UniversityService.university.getCourseList() == null) {
             UniversityService.university.setCourseList(new ArrayList<>());
         }
-        return UniversityService.university.getStudentList();
+        return UniversityService.university.getCourseList();
     }
 
     public Course addNewCourse() {
@@ -31,7 +30,7 @@ public class CourseService {
         System.out.println("Enter course code");
         course.setCourseCode(scanner.nextLine());
 
-        boolean add = getCourses().add(course);
+        getCourses().add(course);
 
         System.out.println(Constants.COURSE_ADDED_SUCCESSFULLY);
 
