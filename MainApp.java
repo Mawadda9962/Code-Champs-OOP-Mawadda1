@@ -43,9 +43,12 @@ public class MainApp {
                         deptMenuContinue = departmentService.handleDepartmentMenu(departmentOption);
                     }
                 }
-                case 3 -> System.out.println("Teacher Menu");
-                case 4 -> System.out.println("Student Menu");
+                case 3 -> System.out.println("Student Menu");
 
+
+
+
+                case 4 -> System.out.println("Teacher Menu");
                 case 5 -> System.out.println("Course Menu");
                 case 6 -> {
                     System.out.println("Exit");

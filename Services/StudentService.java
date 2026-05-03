@@ -54,24 +54,28 @@ public class StudentService {
         System.out.println("Enter Student name to Update: ");
         String name = scanner.nextLine();
 
-        Student student = findStudentByName(name);
+        Student foundStudent = null;
 
-        if (student == null) {
+        for(Student s : UniversityService.university.getStudentList()){
+            if (s.getName() != null && s.getName().equalsIgnoreCase(name)){
+                foundStudent = s;
+                break;
+            }
+        }
+
+        if (foundStudent == null){
             System.out.println(Constants.STUDENT_NOT_FOUND);
             return null;
+
         }
 
         System.out.println("Enter new Student name: ");
-        String addNewName = scanner.nextLine();
+        foundStudent.setName(scanner.nextLine());
 
-        Student updateStudent = new Student();
-        updateStudent.setId(student.getId());
-        updateStudent.setName(addNewName);
-        updateStudent.setOfferedStudents(addNewCourses());
-
-        modifyStudent(name, updateStuent);
-        return updateStuent;
+        System.out.println(Constants.STUDENT_UPDATED_SUCCESSFULLY);
+        return foundStudent;
     }
+
 
 
 
