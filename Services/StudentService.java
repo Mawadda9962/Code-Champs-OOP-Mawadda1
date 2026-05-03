@@ -106,17 +106,62 @@ public class StudentService {
         }
     }
 
+    public void displayStudentByName(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter Student Name: ");
+
+        String name = scanner.nextLine();
 
 
+        Student student = null;
 
+        for (Student s : UniversityService.university.getStudentList()) {
+            if (s.getName() != null && s.getName().equalsIgnoreCase(name)) {
+                student = s;
+                break;
+            }
+        }
 
+        if (student == null) {
+            System.out.println(Constants.STUDENT_NOT_FOUND);
+            return;
+        }
 
+        System.out.println(UniversityService.university.getName());
+        System.out.println(student.getId());
+        System.out.println(student.getName());
+        System.out.println(student.getDepartment().getName());
     }
+    public Boolean handleStudentMenu(Integer studentOption) {
 
+        switch (studentOption) {
 
+            case 1 -> {
+                UniversityService.university.setStudents(addNewStudents());
+            }
 
+            case 2 -> {
+                updatedeStudent();
+            }
 
+            case 3 -> {
+                deleteStudent(UniversityService.university.getStudents());
+            }
 
+            case 4 -> {
+                displayStudentByName();
+            }
 
+            case 5 -> {
+                System.out.println("Show Students");
+                UniversityService.university.displayStudents();
+            }
 
+            case 6 -> {
+                return false;
+            }
+        }
+
+        return true;
+    }
 }
