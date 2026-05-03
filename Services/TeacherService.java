@@ -76,6 +76,16 @@ public class TeacherService {
             }
         }
 
+        if (foudTeacher == null){
+            System.out.println(Constants.TEACHER_NOT_FOUND);
+            return null;
+        }
+        System.out.println("Enter new Teacher name: ");
+        foudTeacher.setName(scanner.nextLine());
+
+        System.out.println(Constants.STUDENT_UPDATED_SUCCESSFULLY);
+        return foudTeacher;
+
     }
 
 
