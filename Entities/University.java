@@ -69,34 +69,7 @@ public class University extends ParentEntity implements UniversityInterface {
 
     @Override
     public void displayDepartments() {
-        System.out.println("University Name" + UniversityService.university.getName());
-        for (Department department : UniversityService.university.getDepartments()) {
-            System.out.println("Department Id: " + department.getId());
-            System.out.println("Department Name: " + department.getName());
-            for (Course c : department.getOfferedCourses()) {
-                System.out.println("Course Id: " + c.getId());
-                System.out.println("Course Name: " + c.getName());
-                System.out.println("Course Code: " + c.getCourseCode());
-            }
-        }
-    }
 
-    public void displayStudents() {
-        System.out.println("University Name " + UniversityService.university.getName());
-
-        if (studentList == null || studentList.isEmpty()) {
-            System.out.println("No Students Available");
-            return;
-        }
-
-        for (Student student : studentList) {
-            System.out.println("Student Id: " + student.getId());
-            System.out.println("Student Name: " + student.getName());
-
-            if (student.getDepartment() != null) {
-                System.out.println("Department Name: " + student.getDepartment().getName());
-            }
-        }
     }
 
 
@@ -108,5 +81,8 @@ public class University extends ParentEntity implements UniversityInterface {
                 ", studentList=" + studentList +
                 ", teacherList=" + teacherList +
                 '}';
+    }
+
+    public void displayTeachers() {
     }
 }

@@ -37,13 +37,13 @@ public class MenuMessages {
             2- UPDATE
             3- DELETE
             4- DISPLAY BY NAME
-            5- DISPLAY BY NAME
+            5- DISPLAY ALL
             """;
     public static String COURSE_MENU_MESSAGE = """
             1- ADD
             2- UPDATE
             3- DELETE
             4- DISPLAY BY NAME
-            5- DISPLAY BY NAME
+            5- DISPLAY ALL
             """;
 }
