@@ -89,7 +89,7 @@ public class StudentService {
         }
 
         System.out.println("Student List");
-        UniversityService.university.displayStudents();
+     UniversityService.university.displayStudents();
 
         System.out.println("Enter Student name to delete");
         String name = scanner.nextLine();

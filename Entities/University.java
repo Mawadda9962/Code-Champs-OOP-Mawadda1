@@ -80,23 +80,22 @@ public class University extends ParentEntity implements UniversityInterface {
             }
         }
     }
-    @Override
+
     public void displayStudents() {
         System.out.println("University Name " + UniversityService.university.getName());
 
-        if (UniversityService.university.getStudentList() == null || UniversityService.university.getStudentList().isEmpty()) {
+        if (studentList == null || studentList.isEmpty()) {
             System.out.println("No Students Available");
             return;
         }
 
-        for (Student student : UniversityService.university.getStudentList()) {
+        for (Student student : studentList) {
             System.out.println("Student Id: " + student.getId());
             System.out.println("Student Name: " + student.getName());
 
             if (student.getDepartment() != null) {
                 System.out.println("Department Name: " + student.getDepartment().getName());
             }
-
         }
     }
 
