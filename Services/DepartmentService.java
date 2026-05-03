@@ -12,7 +12,6 @@ import java.util.UUID;
 
 public class DepartmentService {
 
-
     CourseService courseService = new CourseService();
     University university = new University();
 
@@ -41,12 +40,13 @@ public class DepartmentService {
 
     public List<Department> addNewDepartments() {
         Scanner scanner = new Scanner(System.in);
-        List<Department> departmentList = new ArrayList<>();
+        List<Department> departmentList = getDepartments();
         Boolean continueFlag = true;
+
         while (continueFlag) {
-            //System.out.println("Entering multiple departments");
             departmentList.add(addNewDepartment());
             System.out.println(Constants.INPUT_EXIT_CONTINUE_MESSAGE_DEPARTMENTS);
+
             if (scanner.nextLine().equalsIgnoreCase("q")) {
                 continueFlag = false;
             }
@@ -54,13 +54,15 @@ public class DepartmentService {
         return departmentList;
     }
 
+
     public Department updatedeDepartment() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter Department name to Update: ");
         String name = scanner.nextLine();
 
         Department dep = findDepartmentByName(name);
-        if(dep == null){
+
+        if (dep == null) {
             System.out.println(Constants.COURSE_NOT_FOUND);
             return null;
         }
@@ -75,24 +77,33 @@ public class DepartmentService {
 
         modifyDepartment(name, updateDepartment);
         return updateDepartment;
-
-
     }
 
-    public Boolean modifyDepartment(String departmentName, Department, updatedDepartment){
+
+    public Boolean modifyDepartment(String departmentName, Department updatedDepartment) {
 
         Department dep = findDepartmentByName(departmentName);
+
+        if (dep != null) {
+            dep.setName(updatedDepartment.getName());
+            dep.setOfferedCourses(updatedDepartment.getOfferedCourses());
+            System.out.println(Constants.DEPARTMENT_UPDATED_SUCCESSFULLY);
+            return true;
+        }
+
+        System.out.println(Constants.DEPARTMENT_UPDATED_FAILED);
+        return false;
     }
-}
 
 
-    public void deleteDepartment(List<Department> departmentList){
+    public void deleteDepartment(List<Department> departmentList) {
         Scanner scanner = new Scanner(System.in);
 
-        if (departmentList == null || departmentList.isEmpty()){
+        if (departmentList == null || departmentList.isEmpty()) {
             System.out.println("No Departments available to delete");
             return;
         }
+
         System.out.println("Department List");
         UniversityService.university.displayDepartments();
 
@@ -101,26 +112,31 @@ public class DepartmentService {
 
         Department departmentToRemove = null;
 
-        for(Department department : departmentList){
-            if (department.getName().equalsIgnoreCase(deleteDepartment)){
+        for (Department department : departmentList) {
+            if (department.getName().equalsIgnoreCase(deleteDepartment)) {
                 departmentToRemove = department;
-                System.out.println(Constants.DEPARTMENT_DELETE_SUCCESSFULLY);
             }
         }
 
-
-        public Department findDepartmentByName(String departmentName) {
-            for (Department d : getDepartments()) {
-                if (d.getName() != null && d.getName().equalsIgnoreCase(departmentName)) {
-                    return d;
-                }
-            }
-            return null;
+        if (departmentToRemove != null) {
+            departmentList.remove(departmentToRemove);
+            System.out.println(Constants.DEPARTMENT_DELETE_SUCCESSFULLY);
+        } else {
+            System.out.println(Constants.COURSE_NOT_FOUND);
         }
-
     }
-    public Boolean handleDepartmentMenu(Integer departmentOption) {
 
+
+    public Department findDepartmentByName(String departmentName) {
+        for (Department d : getDepartments()) {
+            if (d.getName() != null && d.getName().equalsIgnoreCase(departmentName)) {
+                return d;
+            }
+        }
+        return null;
+    }
+
+    public Boolean handleDepartmentMenu(Integer departmentOption) {
 
         switch (departmentOption) {
             case 1 -> {
@@ -128,22 +144,18 @@ public class DepartmentService {
             }
             case 2 -> {
                 updatedeDepartment();
-
             }
             case 3 -> {
                 System.out.println("Show Departments");
                 university.displayDepartments();
             }
-
             case 4 -> {
                 deleteDepartment(university.getDepartments());
             }
-
             case 5 -> {
                 return false;
             }
         }
         return true;
     }
-
 }
