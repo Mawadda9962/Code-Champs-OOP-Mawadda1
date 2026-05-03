@@ -54,10 +54,10 @@ public class StudentService {
         System.out.println("Enter Student name to Update: ");
         String name = scanner.nextLine();
 
-        Department dep = findDepartmentByName(name);
+        Student student = findStudentByName(name);
 
-        if (dep == null) {
-            System.out.println(Constants.COURSE_NOT_FOUND);
+        if (student == null) {
+            System.out.println(Constants.STUDENT_NOT_FOUND);
             return null;
         }
 
@@ -65,7 +65,7 @@ public class StudentService {
         String addNewName = scanner.nextLine();
 
         Department updateDepartment = new Department();
-        updateDepartment.setId(dep.getId());
+        updateDepartment.setId(student.getId());
         updateDepartment.setName(addNewName);
         updateDepartment.setOfferedCourses(courseService.addNewCourses());
 
