@@ -57,7 +57,7 @@ public class DepartmentService {
     public void updatedeDepartment() {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Department List");
+        System.out.println("Enter Department name to Update: ");
         UniversityService.university.displayDepartments();
 
         System.out.println("Enter Department name to update: ");
