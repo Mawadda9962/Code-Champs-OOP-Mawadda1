@@ -54,17 +54,23 @@ public class DepartmentService {
         return departmentList;
     }
 
-    public void updatedeDepartment() {
+    public Department updatedeDepartment() {
         Scanner scanner = new Scanner(System.in);
-
         System.out.println("Enter Department name to Update: ");
-        UniversityService.university.displayDepartments();
+        String name = scanner.nextLine();
 
-        System.out.println("Enter Department name to update: ");
-        String updateDepartment = scanner.nextLine();
+        Department dep = findDepartmentByName(name);
+        if(dep == null){
+            System.out.println(Constants.COURSE_NOT_FOUND);
+            return null;
+        }
+
+        System.out.println("Enter new Department name: ");
+        String
 
 
-        for (Department department : university.getDepartments()) {
+
+        for (Department department : University.getDepartments()) {
             if (department.getName().equalsIgnoreCase(updateDepartment)) {
                 System.out.println("Enter new Department Name: ");
                 department.setName(scanner.nextLine());
@@ -84,6 +90,7 @@ public class DepartmentService {
 
         if (departmentList == null || departmentList.isEmpty()){
             System.out.println("No Departments available to delete");
+            return;
         }
         System.out.println("Department List");
         UniversityService.university.displayDepartments();
@@ -99,6 +106,9 @@ public class DepartmentService {
                 System.out.println(Constants.DEPARTMENT_DELETE_SUCCESSFULLY);
             }
         }
+
+
+        public Department findDepartmentByName(String departmentName){
 
     }
     public Boolean handleDepartmentMenu(Integer departmentOption) {
