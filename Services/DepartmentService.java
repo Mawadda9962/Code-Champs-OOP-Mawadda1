@@ -66,23 +66,24 @@ public class DepartmentService {
         }
 
         System.out.println("Enter new Department name: ");
-        String
+        String addNewName = scanner.nextLine();
 
+        Department updateDepartment = new Department();
+        updateDepartment.setId(dep.getId());
+        updateDepartment.setName(addNewName);
+        updateDepartment.setOfferedCourses(courseService.addNewCourses());
 
+        modifyDepartment(name, updateDepartment);
+        return updateDepartment;
 
-        for (Department department : University.getDepartments()) {
-            if (department.getName().equalsIgnoreCase(updateDepartment)) {
-                System.out.println("Enter new Department Name: ");
-                department.setName(scanner.nextLine());
-                System.out.println(Constants.DEPARTMENT_UPDATED_SUCCESSFULLY);
-
-            }else{
-
-            System.out.println(Constants.COURSE_NOT_FOUND);
-            }
-        }
 
     }
+
+    public Boolean modifyDepartment(String departmentName, Department, updatedDepartment){
+
+        Department dep = findDepartmentByName(departmentName);
+    }
+}
 
 
     public void deleteDepartment(List<Department> departmentList){
@@ -108,7 +109,14 @@ public class DepartmentService {
         }
 
 
-        public Department findDepartmentByName(String departmentName){
+        public Department findDepartmentByName(String departmentName) {
+            for (Department d : getDepartments()) {
+                if (d.getName() != null && d.getName().equalsIgnoreCase(departmentName)) {
+                    return d;
+                }
+            }
+            return null;
+        }
 
     }
     public Boolean handleDepartmentMenu(Integer departmentOption) {
