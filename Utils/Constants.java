@@ -26,5 +26,5 @@ public class Constants {
     public static String DEPARTMENT_UPDATED_SUCCESSFULLY = "Department Updated Successfully: ";
     public static String DEPARTMENT_DELETE_SUCCESSFULLY = "Department Deleted Successfully: ";
     public static String DEPARTMENT_NOT_FOUND = "Department Not Found: ";
-    public static String DEPARTMENT_UPDATED_FAILED ="D"
+    public static String DEPARTMENT_UPDATED_FAILED ="Department Update Failed";
 }
