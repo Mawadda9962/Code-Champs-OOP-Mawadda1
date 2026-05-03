@@ -76,6 +76,19 @@ public class StudentService {
         return foundStudent;
     }
 
+    public void deleteStudent(List<Student> studentList){
+        Scanner scanner = new Scanner(System.in);
+
+        if(studentList == null || studentList.isEmpty()){
+            System.out.println("No Student available to delete");
+            return;
+        }
+
+        System.out.println("Student List");
+        UniversityService.university.displayStudents();
+
+
+    }
 
 
 
