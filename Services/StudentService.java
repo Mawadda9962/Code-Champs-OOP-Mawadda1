@@ -61,16 +61,16 @@ public class StudentService {
             return null;
         }
 
-        System.out.println("Enter new Department name: ");
+        System.out.println("Enter new Student name: ");
         String addNewName = scanner.nextLine();
 
-        Department updateDepartment = new Department();
-        updateDepartment.setId(student.getId());
-        updateDepartment.setName(addNewName);
-        updateDepartment.setOfferedCourses(courseService.addNewCourses());
+        Student updateStudent = new Student();
+        updateStudent.setId(student.getId());
+        updateStudent.setName(addNewName);
+        updateStudent.setOfferedStudents(addNewCourses());
 
-        modifyDepartment(name, updateDepartment);
-        return updateDepartment;
+        modifyStudent(name, updateStuent);
+        return updateStuent;
     }
 
 
