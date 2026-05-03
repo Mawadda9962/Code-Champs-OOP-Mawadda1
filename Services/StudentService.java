@@ -10,19 +10,20 @@ import java.util.Scanner;
 import java.util.UUID;
 
 public class StudentService {
+
     CourseService courseService = new CourseService();
     DepartmentService departmentService = new DepartmentService();
-
 
     public Student addNewStudent(){
         Scanner scanner = new Scanner(System.in);
         System.out.println(" ** Adding new Student **");
-        //object student class
+
         Student student = new Student();
         student.setId(UUID.randomUUID());
 
         System.out.println("Enter student Name: ");
         String stdName = scanner.nextLine();
+        student.setName(stdName);
 
         System.out.println("Departments List");
         UniversityService.university.displayDepartments();
@@ -31,7 +32,8 @@ public class StudentService {
         student.setDepartment(departmentService.addNewDepartment());
 
         student.setCourseList(student.getDepartment().getOfferedCourses());
-     return student;
+
+        return student;
     }
 
     public List<Student> addNewStudents(){
@@ -39,9 +41,11 @@ public class StudentService {
         List<Student> studentsList = new ArrayList<>();
 
         Boolean continueFlag = true;
+
         while (continueFlag) {
             studentsList.add(addNewStudent());
             System.out.println(Constants.INPUT_EXIT_CONTINUE_MESSAGE_STUDENTS);
+
             if (scanner.nextLine().equalsIgnoreCase("q")) {
                 continueFlag = false;
             }
@@ -51,6 +55,7 @@ public class StudentService {
 
     public Student updatedeStudent() {
         Scanner scanner = new Scanner(System.in);
+
         System.out.println("Enter Student name to Update: ");
         String name = scanner.nextLine();
 
@@ -66,7 +71,6 @@ public class StudentService {
         if (foundStudent == null){
             System.out.println(Constants.STUDENT_NOT_FOUND);
             return null;
-
         }
 
         System.out.println("Enter new Student name: ");
@@ -93,11 +97,12 @@ public class StudentService {
         Student studentToRemove = null;
 
         for (Student s : studentList){
-            if (s.getName().equalsIgnoreCase(name)){
+            if (s.getName() != null && s.getName().equalsIgnoreCase(name)){
                 studentToRemove = s;
                 break;
             }
         }
+
         if (studentToRemove != null) {
             studentList.remove(studentToRemove);
             System.out.println(Constants.STUDENT_DELETED_SUCCESSFULLY);
@@ -108,10 +113,9 @@ public class StudentService {
 
     public void displayStudentByName(){
         Scanner scanner = new Scanner(System.in);
+
         System.out.println("Enter Student Name: ");
-
         String name = scanner.nextLine();
-
 
         Student student = null;
 
@@ -132,12 +136,13 @@ public class StudentService {
         System.out.println(student.getName());
         System.out.println(student.getDepartment().getName());
     }
+
     public Boolean handleStudentMenu(Integer studentOption) {
 
         switch (studentOption) {
 
             case 1 -> {
-                UniversityService.university.setStudents(addNewStudents());
+                UniversityService.university.setStudentList(addNewStudents());
             }
 
             case 2 -> {
@@ -145,7 +150,7 @@ public class StudentService {
             }
 
             case 3 -> {
-                deleteStudent(UniversityService.university.getStudents());
+                deleteStudent(UniversityService.university.getStudentList());
             }
 
             case 4 -> {
