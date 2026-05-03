@@ -60,4 +60,30 @@ public class TeacherService {
         return teacherList;
     }
 
+
+    public Teacher updateTeacher(){
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter Teacher name to Update: ");
+        String name = scanner.nextLine();
+
+        Teacher foudTeacher = null;
+
+        for (Teacher t : UniversityService.university.getTeacherList()){
+            if (t.getName() != null && t.getName().equalsIgnoreCase(name)) {
+                foudTeacher = t;
+                break;
+            }
+        }
+
+    }
+
+
+
+
+
+
+
+
+
 }

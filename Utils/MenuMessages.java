@@ -35,15 +35,15 @@ public class MenuMessages {
     public static String TEACHER_MENU_MESSAGE = """
             1- ADD
             2- UPDATE
-            3- DISPLAY
-            4- DELETE
-            5- Go Back to Main Menu
+            3- DELETE
+            4- DISPLAY BY NAME
+            5- DISPLAY BY NAME
             """;
     public static String COURSE_MENU_MESSAGE = """
             1- ADD
             2- UPDATE
-            3- DISPLAY
-            4- DELETE
-            5- Go Back to Main Menu
+            3- DELETE
+            4- DISPLAY BY NAME
+            5- DISPLAY BY NAME
             """;
 }
