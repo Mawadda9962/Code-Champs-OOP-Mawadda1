@@ -136,6 +136,23 @@ public class DepartmentService {
         return null;
     }
 
+    public void displayDepartmentByName(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter Department Name: ");
+        String name = scanner.nextLine();
+
+        Department department = findDepartmentByName(name);
+
+        if (department == null){
+            System.out.println(Constants.COURSE_NOT_FOUND);
+            return;
+        }
+        System.out.println(UniversityService.university.getName());
+        System.out.println(department.getId());
+        System.out.println(department.getName());
+    }
+
+
     public Boolean handleDepartmentMenu(Integer departmentOption) {
 
         switch (departmentOption) {
@@ -146,11 +163,11 @@ public class DepartmentService {
                 updatedeDepartment();
             }
             case 3 -> {
-                System.out.println("Show Departments");
-                university.displayDepartments();
+                deleteDepartment(university.getDepartments());
             }
             case 4 -> {
-                deleteDepartment(university.getDepartments());
+                displayDepartmentByName();
+
             }
             case 5 -> {
                 return false;
