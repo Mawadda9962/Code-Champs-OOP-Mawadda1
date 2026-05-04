@@ -151,13 +151,11 @@ public class TeacherService {
             case 2 -> updateTeacher();
 
             case 3 -> {
+                deleteTeacher();
+            }
+            case 4 -> {
                 System.out.println("Show teacher:");
                 displayTeacherByName();
-            }
-
-            case 4 -> {
-                deleteTeacher();
-                displayAllTeachers();
             }
 
             case 5 -> displayAllTeachers();
