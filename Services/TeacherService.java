@@ -137,8 +137,10 @@ public class TeacherService {
 
 
     private void displayAllTeachers() {
-        System.out.println("All teachers:");
-        university.displayTeachers();
+       // System.out.println("All teachers:");
+     //   university.displayTeachers();
+
+
     }
 
 

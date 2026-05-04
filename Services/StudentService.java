@@ -149,6 +149,8 @@ public class StudentService {
         for (Student student : studentList){
             System.out.println(UniversityService.university.getName());
             System.out.println(student.getId());
+            System.out.println(student.getName());
+            System.out.println(student.getDepartment().getName());
 
         }
     }
