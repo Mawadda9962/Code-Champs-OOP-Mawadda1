@@ -153,6 +153,22 @@ public class DepartmentService {
     }
 
 
+    public void displayAllDepartments() {
+        List<Department> departmentList = getDepartments();
+
+        if(departmentList == null || departmentList.isEmpty()){
+            System.out.println("No departments available");
+            return;
+        }
+        System.out.println("All Departments: ");
+
+        for (Department department : departmentList){
+            System.out.println(UniversityService.university.getName());
+            System.out.println(department.getId());
+            System.out.println(department.getName());
+        }
+
+    }
     public Boolean handleDepartmentMenu(Integer departmentOption) {
 
         switch (departmentOption) {

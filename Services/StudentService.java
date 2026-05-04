@@ -137,6 +137,23 @@ public class StudentService {
         System.out.println(student.getDepartment().getName());
     }
 
+    public void displayAllStudents(){
+        List<Student> studentList = UniversityService.university.getStudentList();
+
+        if (studentList == null || studentList.isEmpty()){
+            System.out.println("No Student Available");
+            return;
+        }
+        System.out.println("All Student");
+
+        for (Student student : studentList){
+            System.out.println(UniversityService.university.getName());
+            System.out.println(student.getId());
+
+        }
+    }
+
+
     public Boolean handleStudentMenu(Integer studentOption) {
 
         switch (studentOption) {

@@ -36,7 +36,7 @@ public class MainApp {
                     }
                 }
                 case 2 -> {
-                    System.out.println();
+                    System.out.println("Department Menu");
                     Boolean uniMenuContinue = true;
                     while (uniMenuContinue) {
                         System.out.println(" *********** Department Menu ***********");
